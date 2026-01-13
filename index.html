@@ -1,65 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>GreenGrid Energy Calculator</title>
     <style>
-        body { font-family: sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding: 50px; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
-        h2 { color: #2d5a27; margin-top: 0; }
-        label { display: block; margin: 15px 0 5px; font-weight: bold; }
-        input, select, button { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { background: #2d5a27; color: white; border: none; cursor: pointer; font-size: 16px; }
-        button:hover { background: #3e7a36; }
-        #result { margin-top: 20px; padding: 15px; border-radius: 4px; display: none; }
-        .green { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
-        .high { background: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
+      body {
+        font-family: sans-serif;
+        background: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+      }
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 350px;
+      }
+      h2 {
+        color: #2d5a27;
+        margin-top: 0;
+      }
+      label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: bold;
+      }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background: #2d5a27;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #3e7a36;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        display: none;
+      }
+      .green {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+      }
+      .high {
+        background: #ffebee;
+        color: #c62828;
+        border: 1px solid #ffcdd2;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="card">
-        <h2>GreenGrid Calc</h2>
-        <label>Energy (MWh)</label>
-        <input type="number" id="mwh" value="100">
-        
-        <label>Energy Source</label>
-        <select id="source">
-            <option value="nuclear">Nuclear</option>
-            <option value="wind">Wind</option>
-            <option value="solar">Solar</option>
-            <option value="coal">Coal</option>
-        </select>
-        
-        <button onclick="calculate()">Calculate Emissions</button>
+      <h2>GreenGrid Calculator</h2>
+      <label>Energy (MWh)</label>
+      <input type="number" id="mwh" value="100" />
 
-        <div id="result"></div>
+      <label>Energy Source</label>
+      <select id="source">
+        <option value="nuclear">Nuclear</option>
+        <option value="wind">Wind</option>
+        <option value="solar">Solar</option>
+        <option value="coal">Coal</option>
+      </select>
+
+      <button onclick="calculate()">Calculate Emissions</button>
+
+      <div id="result"></div>
     </div>
 
     <script>
-        async function calculate() {
-            const mwh = document.getElementById('mwh').value;
-            const source = document.getElementById('source').value;
-            const resDiv = document.getElementById('result');
-            
-            resDiv.style.display = 'block';
-            resDiv.innerHTML = 'Calculating...';
+      async function calculate() {
+        const mwh = document.getElementById("mwh").value;
+        const source = document.getElementById("source").value;
+        const resDiv = document.getElementById("result");
 
-            const url = `https://greengrid-energy-calc-sweden-buezgyc2fvbrd3g0.swedencentral-01.azurewebsites.net/api/CalculateGridEmissions?mwh=${mwh}&source=${source}`;
+        resDiv.style.display = "block";
+        resDiv.innerHTML = "Calculating...";
 
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                
-                resDiv.className = data.rating === "Green Energy" ? 'green' : 'high';
-                resDiv.innerHTML = `
+        const url = `https://greengrid-energy-calc-sweden-buezgyc2fvbrd3g0.swedencentral-01.azurewebsites.net/api/CalculateGridEmissions?mwh=${mwh}&source=${source}`;
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          resDiv.className = data.rating === "Green Energy" ? "green" : "high";
+          resDiv.innerHTML = `
                     <strong>${data.rating}</strong><br>
                     Emissions: ${data.carbonFootprintTonnes} Tonnes CO2<br>
                     <small>${data.note}</small>
                 `;
-            } catch (err) {
-                resDiv.innerHTML = "Error connecting to Azure.";
-            }
+        } catch (err) {
+          resDiv.innerHTML = "Error connecting to Azure.";
         }
+      }
     </script>
-</body>
+  </body>
 </html>
