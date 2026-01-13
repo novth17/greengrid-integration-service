@@ -1,15 +1,26 @@
-# GreenGrid Integration Service
-An Azure Functions prototype built for the Fortum Internship application.
+# GreenGrid Carbon Integration API
+A Azure Functions API designed to calculate energy grid emissions. This project demonstrates modern cloud-native development using the .NET Isolated Worker Model.
 
-## ⚡ Features
-- **Serverless API**: Built using C# and .NET 10 (Isolated Worker Model).
-- **Sustainability Logic**: Calculates carbon footprint (Tonnes CO2) based on energy source.
-- **JSON Integration**: Processes real-time grid data payloads.
+## 🛠 Tech Stack
+- **Language**: C# (.NET 10 Isolated)
+- **Framework**: Azure Functions v4
+- **Cloud**: Microsoft Azure (Serverless)
+- **Data Handling**: Newtonsoft.Json for payload processing
 
-## 🚀 How to Run
-1. `func start`
-2. Send POST request to `/api/CalculateGridEmissions`
-
-## 🌐 Live API
-You can test the live production endpoint here:
+## 🌐 Live API Endpoint
 `https://greengrid-calculator.azurewebsites.net/api/CalculateGridEmissions`
+
+## 📊 Business Logic
+The API ingests energy generation data (MWh) and calculates the carbon footprint based on the following intensity factors:
+- **Nuclear**: 12g CO2/kWh
+- **Wind**: 11g CO2/kWh
+- **Solar**: 45g CO2/kWh
+- **Coal**: 820g CO2/kWh
+
+## 🚀 Usage (Local or Cloud)
+Send a POST request with the following JSON body:
+```json
+{
+    "source": "nuclear",
+    "mwh": 500
+}
