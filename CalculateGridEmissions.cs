@@ -55,7 +55,7 @@ public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, 
             EnergyGeneratedMWh = mwh,
             CarbonFootprintTonnes = Math.Round(totalTonnes, 4),
             Rating = totalTonnes < 1.0 ? "Green Energy" : "High Impact",
-            Note = "Data processed via Fortum Integration Prototype"
+            Note = "Data processed via GreenGrid Integration Prototype"
         });
     }
     }
