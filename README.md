@@ -33,7 +33,7 @@ A lightweight HTML5/JavaScript UI that captures user input (MWh and Energy Sourc
 - UI displays the result with a dynamic "Green Energy" or "High Impact" rating.
 
 ## 🚀 Web Interface
-*Note: Initial request may experience a "cold start" delay of ~20s as the serverless instance wakes up.*
+**Note: Instead of running on a constant server, the code stays "idle" until an HTTP request is received. Therefore, initial request may experience a "cold start" delay of ~20s as the serverless instance wakes up.*
 
 <a href="https://novth17.github.io/greengrid-integration-service/">
   <img src="https://img.shields.io/badge/Live%20Demo%20🌿-2d5a27?style=for-the-badge" 
