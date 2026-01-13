@@ -33,12 +33,12 @@ A lightweight HTML5/JavaScript UI that captures user input (MWh and Energy Sourc
 - UI displays the result with a dynamic "Green Energy" or "High Impact" rating.
 
 ## 🚀 Web Interface
+*Note: Initial request may experience a "cold start" delay of ~20s as the serverless instance wakes up.*
+
 <a href="https://novth17.github.io/greengrid-integration-service/">
   <img src="https://img.shields.io/badge/Live%20Demo%20🌿-2d5a27?style=for-the-badge" 
        width="180"/>
 </a>
-<br/>
-*Note: Initial request may experience a "cold start" delay of ~20s as the serverless instance wakes up.*
 
 ### 🛠️ Developer API
 **Endpoint:** `GET/POST /api/CalculateGridEmissions`
@@ -51,7 +51,7 @@ A lightweight HTML5/JavaScript UI that captures user input (MWh and Energy Sourc
   "energyGeneratedMWh": 50,
   "carbonFootprintTonnes": 0.6,
   "rating": "Green Energy",
-  "note": "Data processed via Integration Prototype"
+  "note": "Data processed via GreenGrid Integration Prototype"
 }
 ```
 ## 📊 Business Logic
