@@ -40,6 +40,18 @@ A lightweight HTML5/JavaScript UI that captures user input (MWh and Energy Sourc
        width="180"/>
 </a>
 
+### 🟢 Example API Response
+The live API is restricted to the integrated Web UI. Below is a sample of the JSON payload returned by the service:
+```
+{
+  "source": "nuclear",
+  "energyGeneratedMWh": 50,
+  "carbonFootprintTonnes": 0.6,
+  "rating": "Green Energy",
+  "note": "Data processed via GreenGrid Integration Prototype"
+}
+```
+
 ## 📊 Business Logic
 The API calculates $CO_2$ emissions based on MWh generated and determines if the output is 'Green Energy' or 'High Impact' by comparing the total weight against a 1.0 Metric Tonne sustainability threshold.
 
