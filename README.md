@@ -51,7 +51,7 @@ A lightweight HTML5/JavaScript UI that captures user input (MWh and Energy Sourc
   "energyGeneratedMWh": 50,
   "carbonFootprintTonnes": 0.6,
   "rating": "Green Energy",
-  "note": "Data processed via Fortum Integration Prototype"
+  "note": "Data processed via Integration Prototype"
 }
 ```
 ## 📊 Business Logic
