@@ -1,6 +1,6 @@
 # 🌍 GreenGrid Carbon Integration API
 A simple REST API developed to explore **Azure Functions** and **serverless integration patterns**. 
-The project logic focuses on the energy grid reporting, specifically calculating carbon intensity based on generated data.
+The project logic focuses on calculating carbon intensity based on generated energy data.
 
 ## 🚀 Key Capabilities
 - Serverless Efficiency: Built on the Azure Functions v4 (Isolated Worker Model) for high scalability and minimal idle costs.
