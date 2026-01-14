@@ -1,4 +1,6 @@
 # 🌍 GreenGrid Carbon Integration API
+<img width="471" height="354" alt="image" src="https://github.com/user-attachments/assets/aa9286cb-32e6-4cf7-93d4-e0f2110b376c" />
+
 A simple REST API developed to explore **Azure Functions** and **serverless integration patterns**. 
 The project logic focuses on calculating carbon intensity based on generated energy data.
 
